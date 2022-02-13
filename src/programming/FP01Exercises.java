@@ -6,13 +6,20 @@ public class FP01Exercises {
 	
 	public static void main(String[] args) {
 		List<Integer> numbers = List.of(12, 9, 13, 4, 6, 2, 4, 12, 15);
+		System.out.println("Odd numbers only");
+		printOddNumbersInListFunctional(numbers);
+		System.out.println("Cubes of odd numbers");
 		printCubesOfOddNumbersInListFunctional(numbers);
-//		printOddNumbersInListFunctional(numbers);
+
 		
 		List<String> courses = List.of("Spring", "Spring Boot", "API" , "Microservices","AWS", "PCF","Azure", "Docker", "Kubernetes");
-		
-		// courses.stream()
-		// .forEach(System.out::println);
+
+		System.out.println("All courses");
+		courses.stream()
+		 	.forEach(System.out::println);
+
+		System.out.println("All courses");
+		courses.forEach(System.out::println);
 
 		// courses.stream()
 		// .filter(course -> course.contains("Spring"))
