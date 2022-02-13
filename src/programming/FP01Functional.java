@@ -6,21 +6,27 @@ public class FP01Functional {
 	
 	public static void main(String[] args) {
 		List<Integer> numbers = List.of(12, 9, 13, 4, 6, 2, 4, 12, 15);
-		// printAllNumbersInListFunctional(numbers);
-		//printEvenNumbersInListFunctional(numbers);
+		System.out.println("Print all numbers");
+		printAllNumbersInListFunctional(numbers);
+		System.out.println("Print all even numbers");
+		printEvenNumbersInListFunctional(numbers);
+		System.out.println("Print squares of all even numbers");
 		printSquaresOfEvenNumbersInListFunctional(numbers);
 	}
 
-	// private static void print(int number) {
-	// System.out.println(number);
-	// }
+	 private static void print(int number) {
+		 System.out.println(number);
+	 }
 
 	// private static boolean isEven(int number) {
 	// return number%2 == 0;
 	// }
 
 	private static void printAllNumbersInListFunctional(List<Integer> numbers) {
-		// What to do?
+		// What to do?d
+		System.out.println("Print using function defined in class");
+		numbers.stream().forEach(FP01Functional::print);
+		System.out.println("Print using straight System.opt::println");
 		numbers.stream().forEach(System.out::println);// Method Reference
 	}
 
