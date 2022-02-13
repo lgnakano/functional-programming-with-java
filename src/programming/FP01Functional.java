@@ -28,6 +28,12 @@ public class FP01Functional {
 		numbers.stream().forEach(FP01Functional::print);
 		System.out.println("Print using straight System.opt::println");
 		numbers.stream().forEach(System.out::println);// Method Reference
+
+		System.out.println("Print using function defined in class without using stream");
+		numbers.forEach(FP01Functional::print);
+		System.out.println("Print using straight System.opt::println without using stream");
+		numbers.forEach(System.out::println);// Method Reference
+
 	}
 
 	// number -> number%2 == 0
@@ -35,10 +41,12 @@ public class FP01Functional {
 		// What to do?
 
 		numbers.stream() // Convert to Stream
+				// .filter(FP01Functional::isEven)
+				// Filter - Only Allow Even Numbers
 				.filter(number -> number % 2 == 0) // Lamdba Expression
 				.forEach(System.out::println);// Method Reference
 
-		// .filter(FP01Functional::isEven)//Filter - Only Allow Even Numbers
+
 	}
 	
 	private static void printSquaresOfEvenNumbersInListFunctional(List<Integer> numbers) {
