@@ -12,9 +12,9 @@ public class FP03BehaviorParameterization {
 		
 		List<Integer> numbers = List.of(12, 9, 13, 4, 6, 2, 4, 12, 15);
 		
-		//filterAndPrint(numbers, x -> x%2==0);
+		filterAndPrint(numbers, x -> x%2==0);
 
-		//filterAndPrint(numbers, x -> x%2!=0);
+		filterAndPrint(numbers, x -> x%2!=0);
 		
 		filterAndPrint(numbers, x -> x%3==0);
 		
@@ -27,6 +27,10 @@ public class FP03BehaviorParameterization {
 		List<Integer> doubledNumbers =  mapAndCreateNewList(numbers, x -> x + x);
 		
 		System.out.println(doubledNumbers);
+
+		System.out.println(cubedNumbers);
+
+		System.out.println(squaredNumbers);
 		
 	}
 

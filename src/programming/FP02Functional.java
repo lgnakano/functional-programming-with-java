@@ -24,14 +24,15 @@ public class FP02Functional {
 		// 34 4
 		// 38 6
 		// 44 2
+
 		// 46 4
 		// 50 12
 		// 62 15
 		// 77
 		
-		// int sum = addListFunctional(numbers);
+		 int sum = addListFunctional(numbers);
 		//
-		// System.out.println(sum);
+		 System.out.println(sum);
 
 	}
 	
@@ -46,6 +47,12 @@ public class FP02Functional {
 				.collect(Collectors.toList());
 	}
 
+	private static List<Integer> doubleList(List<Integer> numbers) {
+		return numbers.stream()
+				.map(number -> number * 2)
+				.collect(Collectors.toList());
+	}
+
 	private static int sum(int aggregate, int nextNumber) {
 		System.out.println(aggregate + " " + nextNumber);
 		return aggregate + nextNumber;
@@ -57,8 +64,8 @@ public class FP02Functional {
 		  // 0 and FP02Functional::sum
 		return numbers.stream()
 				.parallel()
-		  //.reduce(0, FP02Functional::sum);	
+		  .reduce(0, FP02Functional::sum);
 		  // .reduce(0, (x,y) -> x + y);
-			.reduce(0, Integer::sum);
+		  // .reduce(0, Integer::sum);
 	}
 }

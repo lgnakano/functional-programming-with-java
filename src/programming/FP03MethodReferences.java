@@ -19,7 +19,10 @@ public class FP03MethodReferences {
 		courses.stream()
 		 //.map(str -> str.toUpperCase())
 		 .map(String::toUpperCase)
+		 .sorted()
 		 .forEach(FP03MethodReferences::print);
+
+		// Supplier<String> supplier = () -> new String();
 		
 		Supplier<String> supplier = String::new;
 

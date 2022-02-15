@@ -45,7 +45,7 @@ public class FP03FunctionalInterfaces2 {
 			return number<10 && str.length()>5;
 		};
 		
-		System.out.println(biPredicate.test(10, "in28minutes"));
+		System.out.println(biPredicate.test(5, "in28minutes"));
 		
 		BiFunction<Integer, String, String> biFunction = (number,str) -> {
 			return number + " " + str;
