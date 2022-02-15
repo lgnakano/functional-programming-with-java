@@ -150,7 +150,24 @@ public class FP04CustomClass {
 				.limit(5)
 				.collect(Collectors.toList()));
 		//[AWS:21000:92, Spring:20000:98, Docker:20000:92, Kubernetes:20000:91, Spring Boot:18000:95]
-		
+
+		System.out.println(
+				courses.stream()
+						.sorted(comparingByNoOfStudentsAndNoOfReviews)
+						.skip(3)
+						.limit(10)
+						.collect(Collectors.toList()));
+
+		//[AWS:21000:92, Spring:20000:98, Docker:20000:92, Kubernetes:20000:91, Spring Boot:18000:95, FullStack:14000:91]
+
+		System.out.println(
+				courses.stream()
+						.sorted(comparingByNoOfStudentsAndNoOfReviews)
+						.skip(10)
+						.limit(3)
+						.collect(Collectors.toList()));
+		// []
+
 		System.out.println(courses);
 		
 		//[Spring:20000:98, Spring Boot:18000:95, API:22000:97, Microservices:25000:96, FullStack:14000:91, AWS:21000:92, Azure:21000:99, Docker:20000:92, Kubernetes:20000:91]
