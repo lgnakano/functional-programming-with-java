@@ -249,7 +249,13 @@ public class FP04CustomClass {
 				.filter(reviewScoreGreaterThan95Predicate)
 				.mapToInt(Course::getNoOfStudents)
 				.max());//OptionalInt[25000]
-		
+
+		System.out.println(
+				courses.stream()
+						.filter(reviewScoreGreaterThan95Predicate)
+						.mapToInt(Course::getNoOfStudents)
+						.min());//OptionalInt[20000]
+
 		System.out.println(
 				courses.stream()
 				.collect(Collectors.groupingBy(Course::getCategory)));
