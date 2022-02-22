@@ -29,7 +29,8 @@ public class Palindromes {
     private static List<List<String>> findPalindromes(List<String> inputStrings) {
         return inputStrings.stream()
                 .map(
-                        s -> getPalindromesMap(inputStrings).getOrDefault(transform(s), new ArrayList<>())
+                        s -> getPalindromesMap(inputStrings)
+                                .getOrDefault(transform(s), new ArrayList<>())
                                 .stream()
                                 .filter( l -> s.compareTo(l) != 0)
                                 .collect( Collectors.toList())
@@ -43,8 +44,6 @@ public class Palindromes {
         var inputStrings = List.of(
                 "aab", "aac", "baa", "aad", "eco", "coe", "aba"
         );
-
-
 
         System.out.println(findPalindromes(inputStrings));
     }
