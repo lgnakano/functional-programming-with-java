@@ -4,9 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Palindromes {
 
+//    public static <A, B, Pair> List<Pair<A, B>> zipJava8(List<A> as, List<B> bs) {
+//        return IntStream.range(0, Math.min(as.size(), bs.size()))
+//                .mapToObj(i -> new Pair<>(as.get(i), bs.get(i)))
+//                .collect(Collectors.toList());
+//    }
+
+    public static <A, B> List<Map.Entry<A, B>> zipJava8(List<A> as, List<B> bs) {
+        return IntStream.range(0, Math.min(as.size(), bs.size()))
+                .mapToObj(i -> Map.entry(as.get(i), bs.get(i)))
+//                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+                .collect(Collectors.toList());
+    }
 
     /**
      *
@@ -75,8 +88,10 @@ public class Palindromes {
 
         System.out.println(findPalindromesList(inputStrings));
 
-        findPalindromesList(inputStrings)
-                .forEach(System.out::println);
+        System.out.println(zipJava8(inputStrings, findPalindromesList(inputStrings)));
+
+//        findPalindromesList(inputStrings)
+//                .forEach(System.out::println);
     }
 
 
