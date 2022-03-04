@@ -5,17 +5,8 @@ import java.util.stream.Collectors;
 
 public class NetworkMask {
 
-     public static void main(String[] args) {
-        String network = "192.168.1.128/25";
-        String ip = "192.168.1.127";
 
-        System.out.println(binary(ip).substring(0, 25));
-        System.out.println(binary(ip).substring(0, 25).length());
-
-        System.out.println(ipInNetwork(ip, network));
-    }
-
-    private static boolean ipInNetwork(String ip, String network) {
+    public static boolean ipInNetwork(String ip, String network) {
 
         String[] networkElements = network.split("/");
         int maskLength = Integer.parseInt(networkElements[1]);
@@ -27,8 +18,7 @@ public class NetworkMask {
         return ipBinary.compareTo(networkBinary) == 0;
     }
 
-
-    private static String binary(String ip) {
+    public static String binary(String ip) {
        return  Arrays.stream(ip.split("\\."))
                 .map((String s) ->
                         String.format("%8s",Integer.toBinaryString(
@@ -39,4 +29,15 @@ public class NetworkMask {
                         Collectors.joining(""));
 
     }
+
+    public static void main(String[] args) {
+        String network = "192.168.1.128/25";
+        String ip = "192.168.1.127";
+
+        System.out.println(binary(ip).substring(0, 25));
+        System.out.println(binary(ip).substring(0, 25).length());
+
+        System.out.println(ipInNetwork(ip, network));
+    }
+
 }
