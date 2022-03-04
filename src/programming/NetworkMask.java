@@ -34,9 +34,6 @@ public class NetworkMask {
         String network = "192.168.1.128/25";
         String ip = "192.168.1.127";
 
-        System.out.println(binary(ip).substring(0, 25));
-        System.out.println(binary(ip).substring(0, 25).length());
-
         System.out.println(ipInNetwork(ip, network));
     }
 
