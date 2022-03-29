@@ -8,11 +8,6 @@ import java.util.stream.IntStream;
 
 public class Palindromes {
 
-//    public static <A, B, Pair> List<Pair<A, B>> zipJava8(List<A> as, List<B> bs) {
-//        return IntStream.range(0, Math.min(as.size(), bs.size()))
-//                .mapToObj(i -> new Pair<>(as.get(i), bs.get(i)))
-//                .collect(Collectors.toList());
-//    }
 
     public static <A, B> List<Map.Entry<A, B>> zipJava8(List<A> as, List<B> bs) {
         return IntStream.range(0, Math.min(as.size(), bs.size()))
@@ -21,14 +16,21 @@ public class Palindromes {
                 .collect(Collectors.toList());
     }
 
+
     /**
      *
      * @param s - input string
      * @return string with characters sorted
      */
-    private static String transform(String s) {
-        return s.chars()
-                .sorted()
+    public static String transform(String s) {
+        return
+//                s.chars()
+//                .mapToObj(n->(char)n)
+//                .sorted()
+//                .map(Object::toString)
+//                .collect(Collectors.joining(""));
+        s.chars()
+                  .sorted()
                 .collect(
                         StringBuilder::new,
                         StringBuilder::appendCodePoint,
@@ -41,7 +43,7 @@ public class Palindromes {
      * @param inputStrings - List of strings
      * @return map of transformed string to all palindromes on input string
      */
-    private static Map<String, List<String>> getPalindromeMap(List<String> inputStrings) {
+    public static Map<String, List<String>> getPalindromeMap(List<String> inputStrings) {
         return inputStrings.stream()
                 .collect(Collectors.groupingBy(Palindromes::transform));
     }
@@ -51,7 +53,7 @@ public class Palindromes {
      * @return mapping from transformed string to all palindromes
      * present on the input strings that have more than one palindrome.
      */
-    private static Map<String, List<String>> getPalindromesMapFiltered(List<String> inputStrings) {
+    public static Map<String, List<String>> getPalindromesMapFiltered(List<String> inputStrings) {
         return getPalindromeMap(inputStrings)
                 .entrySet()
                 .stream()
@@ -66,7 +68,7 @@ public class Palindromes {
      * strings on the inputStrings that are palindromes of the string
      * on that particular position on the list.
      */
-    private static List<List<String>> findPalindromesList(List<String> inputStrings) {
+    public static List<List<String>> findPalindromesList(List<String> inputStrings) {
         return inputStrings.stream()
                 .map(
                         s -> getPalindromesMapFiltered(inputStrings)
