@@ -63,8 +63,11 @@ public class SieveOfEratosthenes {
     }
 
     public static void main(String[] args) {
+        System.out.println("Using primeStream");
         System.out.println(Arrays.toString(primeStream(1000).toArray()));
+        System.out.println("Using primesOpt");
         System.out.println(primesOpt(1000));
+        System.out.println("Using primes");
         System.out.println(primes(1000));
     }
 
